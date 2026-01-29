@@ -2,95 +2,176 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* TranscriPle - Sistema de Disseny
+   Interfície de revisió de transcripcions municipals
+   Filosofia: sobrietat institucional, velocitat, accessibilitat
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Fons i text principal */
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
 
+    /* Superfícies */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 220 25% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 25% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primari - Blau institucional */
+    --primary: 220 60% 25%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secundari - Gris neutre */
+    --secondary: 210 15% 93%;
+    --secondary-foreground: 220 25% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Subtil */
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Acció */
+    --accent: 210 20% 90%;
+    --accent-foreground: 220 60% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructiu */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Bordes i inputs */
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 220 60% 25%;
+    --radius: 0.375rem;
 
-    --radius: 0.5rem;
+    /* === SEMÀFOR D'ESTATS === */
+    --status-ok: 142 70% 40%;
+    --status-ok-foreground: 0 0% 100%;
+    --status-ok-subtle: 142 50% 95%;
+    
+    --status-warning: 38 92% 50%;
+    --status-warning-foreground: 0 0% 0%;
+    --status-warning-subtle: 38 90% 95%;
+    
+    --status-error: 0 70% 50%;
+    --status-error-foreground: 0 0% 100%;
+    --status-error-subtle: 0 70% 97%;
+    
+    --status-pending: 210 15% 60%;
+    --status-pending-foreground: 0 0% 100%;
+    --status-pending-subtle: 210 15% 96%;
 
-    --sidebar-background: 0 0% 98%;
+    /* === ENTITATS PII === */
+    --pii-critical: 0 80% 45%;
+    --pii-critical-bg: 0 80% 96%;
+    --pii-high: 25 90% 50%;
+    --pii-high-bg: 25 90% 96%;
+    --pii-medium: 38 92% 50%;
+    --pii-medium-bg: 38 92% 96%;
+    --pii-low: 210 60% 50%;
+    --pii-low-bg: 210 60% 96%;
+    --pii-safe: 142 70% 40%;
+    --pii-safe-bg: 142 50% 96%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* === DIFF VIEWER === */
+    --diff-added: 142 60% 90%;
+    --diff-added-text: 142 70% 25%;
+    --diff-removed: 0 70% 92%;
+    --diff-removed-text: 0 70% 30%;
+    --diff-highlight: 45 100% 85%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* === WAVEFORM === */
+    --waveform-bg: 210 15% 96%;
+    --waveform-wave: 220 60% 35%;
+    --waveform-progress: 220 60% 25%;
+    --waveform-cursor: 0 70% 50%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* === PANELLS === */
+    --panel-header: 210 20% 96%;
+    --panel-border: 214 20% 85%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 220 20% 97%;
+    --sidebar-foreground: 220 25% 20%;
+    --sidebar-primary: 220 60% 25%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 93%;
+    --sidebar-accent-foreground: 220 25% 15%;
+    --sidebar-border: 214 20% 88%;
+    --sidebar-ring: 220 60% 25%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 25% 8%;
+    --foreground: 210 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 25% 10%;
+    --card-foreground: 210 20% 95%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 210 20% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --primary: 210 60% 55%;
+    --primary-foreground: 220 25% 5%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 20% 90%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 215 15% 60%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 220 20% 20%;
+    --accent-foreground: 210 60% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 210 60% 55%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --status-ok: 142 60% 45%;
+    --status-ok-subtle: 142 50% 15%;
+    --status-warning: 38 85% 55%;
+    --status-warning-subtle: 38 70% 15%;
+    --status-error: 0 65% 55%;
+    --status-error-subtle: 0 60% 15%;
+    --status-pending: 210 15% 50%;
+    --status-pending-subtle: 210 15% 15%;
+
+    --pii-critical: 0 75% 55%;
+    --pii-critical-bg: 0 60% 15%;
+    --pii-high: 25 85% 55%;
+    --pii-high-bg: 25 70% 15%;
+    --pii-medium: 38 85% 55%;
+    --pii-medium-bg: 38 70% 15%;
+    --pii-low: 210 55% 55%;
+    --pii-low-bg: 210 50% 15%;
+    --pii-safe: 142 60% 45%;
+    --pii-safe-bg: 142 50% 15%;
+
+    --diff-added: 142 50% 15%;
+    --diff-added-text: 142 60% 70%;
+    --diff-removed: 0 50% 15%;
+    --diff-removed-text: 0 60% 70%;
+    --diff-highlight: 45 70% 25%;
+
+    --waveform-bg: 220 20% 12%;
+    --waveform-wave: 210 50% 50%;
+    --waveform-progress: 210 60% 55%;
+    --waveform-cursor: 0 65% 55%;
+
+    --panel-header: 220 20% 12%;
+    --panel-border: 220 20% 22%;
+
+    --sidebar-background: 220 25% 6%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 210 60% 55%;
+    --sidebar-primary-foreground: 220 25% 5%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 210 60% 55%;
   }
 }
 
@@ -100,6 +181,179 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Focus visible per accessibilitat */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* === PANELLS === */
+  .panel {
+    @apply bg-card border border-panel-border rounded-md overflow-hidden;
+  }
+
+  .panel-header {
+    @apply bg-panel-header px-4 py-2.5 border-b border-panel-border flex items-center justify-between;
+  }
+
+  .panel-title {
+    @apply text-sm font-semibold text-foreground;
+  }
+
+  .panel-body {
+    @apply p-4;
+  }
+
+  /* === BADGES D'ESTAT === */
+  .badge-ok {
+    @apply bg-status-ok-subtle text-status-ok border border-status-ok/20;
+  }
+
+  .badge-warning {
+    @apply bg-status-warning-subtle text-status-warning border border-status-warning/20;
+  }
+
+  .badge-error {
+    @apply bg-status-error-subtle text-status-error border border-status-error/20;
+  }
+
+  .badge-pending {
+    @apply bg-status-pending-subtle text-status-pending border border-status-pending/20;
+  }
+
+  /* === SEVERITAT PII === */
+  .pii-critical {
+    @apply bg-pii-critical-bg text-pii-critical border-l-4 border-l-pii-critical;
+  }
+
+  .pii-high {
+    @apply bg-pii-high-bg text-pii-high border-l-4 border-l-pii-high;
+  }
+
+  .pii-medium {
+    @apply bg-pii-medium-bg text-pii-medium border-l-4 border-l-pii-medium;
+  }
+
+  .pii-low {
+    @apply bg-pii-low-bg text-pii-low border-l-4 border-l-pii-low;
+  }
+
+  .pii-safe {
+    @apply bg-pii-safe-bg text-pii-safe border-l-4 border-l-pii-safe;
+  }
+
+  /* === DIFF VIEWER === */
+  .diff-added {
+    @apply bg-diff-added text-diff-added-text;
+  }
+
+  .diff-removed {
+    @apply bg-diff-removed text-diff-removed-text line-through;
+  }
+
+  .diff-highlight {
+    @apply bg-diff-highlight;
+  }
+
+  /* === DRECERES DE TECLAT === */
+  .kbd {
+    @apply inline-flex items-center justify-center min-w-[1.5rem] h-6 px-1.5 
+           bg-muted border border-border rounded text-xs font-mono text-muted-foreground
+           shadow-sm;
+  }
+
+  /* === WAVEFORM === */
+  .waveform-container {
+    @apply bg-waveform-bg rounded-md overflow-hidden relative;
+  }
+
+  /* === TASQUES === */
+  .task-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md cursor-pointer transition-colors
+           hover:bg-accent;
+  }
+
+  .task-item.active {
+    @apply bg-accent border-l-2 border-l-primary;
+  }
+
+  .task-count {
+    @apply inline-flex items-center justify-center min-w-[1.5rem] h-5 px-1.5
+           bg-primary text-primary-foreground text-xs font-medium rounded-full;
+  }
+
+  .task-count.warning {
+    @apply bg-status-warning text-status-warning-foreground;
+  }
+
+  .task-count.error {
+    @apply bg-status-error text-status-error-foreground;
+  }
+
+  /* === ENTITY CARD === */
+  .entity-card {
+    @apply bg-card border border-border rounded-md overflow-hidden transition-all
+           hover:border-primary/50 hover:shadow-sm;
+  }
+
+  .entity-card.selected {
+    @apply border-primary ring-1 ring-primary/20;
+  }
+
+  /* === SPEAKER TIMELINE === */
+  .speaker-segment {
+    @apply h-8 rounded-sm cursor-pointer transition-opacity hover:opacity-80;
+  }
+
+  /* === SCROLL PERSONALITZAT === */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-muted-foreground/30;
+  }
+}
+
+@layer utilities {
+  /* Animacions subtils */
+  .animate-fade-in {
+    animation: fadeIn 150ms ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Auto-avanç visual */
+  .auto-advance-indicator {
+    @apply relative overflow-hidden;
+  }
+
+  .auto-advance-indicator::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-0.5 bg-primary;
+    animation: progressBar 400ms ease-out forwards;
+  }
+
+  @keyframes progressBar {
+    from { width: 0; }
+    to { width: 100%; }
   }
 }
